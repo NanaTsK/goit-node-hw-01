@@ -10,11 +10,6 @@ program
 	.option("-e, --email <type>", "user email")
 	.option("-p, --phone <type>", "user phone");
 
-// .action((str, options) => {
-// 	const limit = options.first ? 1 : undefined;
-// 	console.log(str.split(options.separator, limit));
-// });
-
 program.parse(process.argv);
 
 const argv = program.opts();
@@ -23,6 +18,7 @@ async function invokeAction({ action, id, name, email, phone }) {
 	switch (action) {
 		case "list":
 			const allContacts = await contacts.listContacts();
+			console.table(allContacts);
 			break;
 
 		case "get":
