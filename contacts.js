@@ -8,14 +8,12 @@ export const listContacts = async () => {
 	return JSON.parse(contacts);
 };
 
-function getContactById(contactId) {
-	// ...твій код. Повертає об'єкт контакту з таким id. Повертає null, якщо контакт з таким id не знайдений.
-}
+export const getContactById = async (contactId) => {
+	const contacts = await listContacts();
+	const singleContact = contacts.find((item) => item.id === contactId);
+	return singleContact || null;
+};
 
-function removeContact(contactId) {
-	// ...твій код. Повертає об'єкт видаленого контакту. Повертає null, якщо контакт з таким id не знайдений.
-}
+export const removeContact = async (contactId) => {};
 
-function addContact(name, email, phone) {
-	// ...твій код. Повертає об'єкт доданого контакту.
-}
+export const addContact = async (name, email, phone) => {};
